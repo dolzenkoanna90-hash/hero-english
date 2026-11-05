@@ -84,6 +84,7 @@ export function syncCurriculum(s){
  for(let i=start;i<routeIds.length-1;i++){const id=routeIds[i];if(!s.curriculum.unlocked.includes(id))break;if(topicReadiness(s,id).ready&&!s.curriculum.unlocked.includes(routeIds[i+1]))s.curriculum.unlocked.push(routeIds[i+1]);}
  return s;
 }
-export function isUnlocked(s,id){return !routeIds.includes(id)||s.curriculum.unlocked.includes(id);}
-export function currentTopic(s){syncCurriculum(s);return curriculum.filter(t=>isUnlocked(s,t.id)).at(-1)||curriculum[0];}
+// Access is open for every known topic; curriculum.unlocked retains the recommended learning route.
+export function isUnlocked(s,id){return topics.some(t=>t.id===id);}
+export function currentTopic(s){syncCurriculum(s);return curriculum.filter(t=>s.curriculum.unlocked.includes(t.id)).at(-1)||curriculum[0];}
 export function setSchoolTopic(s,id){if(!routeIds.includes(id))throw Error('Unknown school topic');s.curriculum.start=id;s.curriculum.unlocked=routeIds.slice(0,routeIds.indexOf(id)+1);syncCurriculum(s);return s;}
