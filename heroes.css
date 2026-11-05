@@ -1,0 +1,34 @@
+/* User-provided local portraits; displayed in full without cropping. */
+.hero-character{display:block;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 8px 5px #2b145a22)}
+.hero-illustrated{transform:none!important;min-height:250px;position:relative;isolation:isolate}
+.hero-glow{position:absolute;inset:24px 12px;border-radius:50%;background:radial-gradient(circle,#dec2ff80,transparent 68%);z-index:-1}
+.featured-character{width:215px;height:250px;animation:hero-float 3s ease-in-out 2}
+.hero-greeting{position:absolute;right:0;top:8px;padding:10px 15px;background:#ffdf68;color:#46266a;border:2px solid #fff4b4;border-radius:18px 18px 18px 4px;font-size:13px;font-weight:800;box-shadow:0 5px 0 #32135b33;transform:rotate(5deg)}
+.mission-symbol{position:relative;width:85px;height:100px;background:#ffffff66!important;border-color:#ffffffaa!important;overflow:visible}
+.card-character{width:81px;height:95px;transition:transform .25s ease}
+.mission-card:hover .card-character{transform:rotate(-5deg) translateY(-4px)}
+.portrait-lock{position:absolute;bottom:-3px;right:-3px;background:#fff3ca;border-radius:50%;padding:4px;font-size:17px}
+.hero-team{display:grid;grid-template-columns:1fr 1.25fr;align-items:center;gap:18px;background:linear-gradient(120deg,#f1e4ff,#ddf8ff);border:2px solid #d5b7f1;border-radius:24px;padding:22px 26px;margin:0 0 25px;overflow:hidden}
+.hero-team h2{font-size:22px;margin-bottom:9px}.hero-team p{margin:0;color:#605477;font-size:13px}.hero-team .eyebrow{color:#7131bc}
+.team-portraits{display:flex;justify-content:space-around;gap:8px}.team-portraits figure{margin:0;min-width:0;text-align:center;flex:1}.team-character{width:100%;height:142px;animation:hero-arrive .6s ease both}.team-portraits figure:nth-child(2) .team-character{animation-delay:.1s}.team-portraits figure:nth-child(3) .team-character{animation-delay:.2s}.team-portraits figcaption{font-size:10px;color:#533578;font-weight:800;margin-top:7px}
+.lesson-companion{display:flex;align-items:center;gap:11px;min-width:0}.lesson-character{width:47px;height:56px;filter:none}.lesson-top>div:last-child{flex-shrink:0}
+.finish-team{position:relative;width:200px;height:190px;margin:0 auto 15px}.finish-character{width:160px;height:185px;margin:auto;animation:hero-arrive .7s ease both}.finish-team .finish-star{position:absolute;right:-5px;top:10px;font-size:48px;animation:success-pop .7s ease both}
+.success-spark{display:inline-block;color:#51962e;animation:success-pop .55s ease both;font-size:24px;vertical-align:middle}.feedback.success{animation:feedback-arrive .35s ease both}
+.motion-button[aria-pressed=false]{color:#8f859e;background:#f2edf7;text-decoration:line-through}
+@keyframes hero-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes hero-arrive{from{opacity:0;transform:translateY(16px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes success-pop{0%{transform:scale(.5) rotate(-25deg)}65%{transform:scale(1.18) rotate(8deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes feedback-arrive{from{transform:translateY(6px);opacity:.5}to{transform:translateY(0);opacity:1}}
+.motion-off .hero-character,.motion-off .success-spark,.motion-off .finish-star,.motion-off .feedback.success{animation:none!important;transition:none!important}.motion-off .mission-card:hover .card-character{transform:none}
+@media(max-width:1100px){.featured-character{width:180px;height:220px}.hero-greeting{right:-10px;font-size:11px}.hero-team{grid-template-columns:1fr 1.3fr;padding:20px}.team-character{height:124px}}
+@media(max-width:580px){.hero{grid-template-columns:1fr;min-height:0}.hero-illustrated{position:relative;right:auto;bottom:auto;width:100%;height:175px;min-height:175px;margin-top:15px;opacity:1}.featured-character{width:145px;height:175px}.hero-greeting{right:calc(50% - 150px);top:10px;font-size:11px}.hero h2,.hero p{max-width:none}.hero-team{grid-template-columns:1fr;gap:15px;padding:20px}.hero-team h2{font-size:20px}.team-character{height:110px}.team-portraits figcaption{font-size:9px}.mission-symbol{width:65px;height:80px}.card-character{width:61px;height:75px}.lesson-companion{gap:7px}.lesson-character{width:36px;height:44px}.top-actions{gap:7px}.icon-button{width:34px;height:34px}.parent-link{padding:7px}.lesson-top strong{font-size:11px}.lesson-top>div:last-child{display:flex;align-items:center;gap:5px}}
+@media(prefers-reduced-motion:reduce){.hero-character,.success-spark,.finish-star,.feedback.success{animation:none!important;transition:none!important}.mission-card:hover .card-character{transform:none}}
+
+/* Keep supplied pictures and their original proportions intact. */
+.hero-character{border-radius:10px;object-fit:contain}
+.team-character{height:170px;max-width:100%;width:auto;margin:auto;box-shadow:0 4px 10px #45247218}
+.featured-character{width:auto;max-width:100%;border:3px solid #ffffffaa;box-shadow:0 10px 22px #31155e33}
+.card-character,.lesson-character{width:auto;max-width:100%}
+.finish-character{width:auto;max-width:100%}
+@media(max-width:1100px){.team-character{height:145px}}
+@media(max-width:580px){.team-character{height:125px}.featured-character{height:175px}.hero-greeting{right:calc(50% - 135px)}}
